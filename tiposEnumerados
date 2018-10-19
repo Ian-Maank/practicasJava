@@ -1,0 +1,24 @@
+/*
+ * TiposEnumerados.java
+ * Ejemplo de Tipos enumerados
+ */
+
+/**
+ *
+ * @author FMA
+ */
+public class TiposEnumerados {
+    public enum Dias {LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO};
+    
+    public static void main(String[] args) {
+        // código de la aplicacion
+        Dias diaActual = Dias.MARTES ;
+        Dias diaSiguiente = Dias.MIERCOLES ;
+        
+        System.out.print("Hoy es: ");
+        System.out.println(diaActual);
+        System.out.println("Mañana\nes\n" + diaSiguiente);    
+    
+    } // fin main
+
+} // fin TiposEnumerados
