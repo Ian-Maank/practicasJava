@@ -1,0 +1,116 @@
+// Ejercicio Resuelto
+//Dadas las variables siguientes:
+
+//int x1=10, x2=5, x3=0;
+//char c1='F', c2='S';
+//Crea una expresión lógica, que utilice operadores lógicos y relacionales, para cada uno de los siguientes casos (intenta evaluar mentalmente el resultado de la expresión antes de mostrarlo por pantalla):
+
+//x1 es igual a x2
+//c1 es distinto a c2
+//x1 está entre 10 y 100
+//x2 no está entre 10 y 100
+//x3 no está entre 10 y 100
+//x1 es mayor que x2 y c1 es igual a c2
+//O x1 es mayor que x2, o c1 es distinto a c2, cualquiera de los dos casos.
+//x1 es menor o igual que 7 y c2 es igual a c1
+//c2 es distinto de 'A' y x2 es mayor que 0
+//'F' es distinto de c1 o x1 es mayor que 20
+//'F' es distinto de c1 o x1 es mayor que 20 o x2 es mayor que 2
+//'F' es igual a c1 y x3 es menor que x1
+//'F' es igual a c1 y x3 es menor que x1 y x2 es menor o igual que x3
+//x2 está entre x3 y x1, y c2 es 'S'
+//x3 no está entre x2 y x1
+//x3 no está entre x2 y x1, o c2 es igual a c1
+//no se cumple que x3 es menor que x1
+//ni x3 es mayor que x1, ni c2 es distinto a c1
+//no se cumple que x1 es menor que 100 y x2 es mayor que 10
+//c2 es anterior alfabéticamente a c1
+
+public class EjercicioOperadoresLogicos {
+     public static void main(String[] args) {
+         int x1=10, x2=5, x3=0;
+         char c1='F', c2='S';
+         boolean b;
+
+         //x1 es igual a x2
+         b=x1==x2; //false
+         System.out.println("C1: "+b);
+
+         //c1 es distinto a c2
+         b=c1!=c2; //true
+         System.out.println("C2: "+b);
+         
+         //x1 está entre 10 y 100
+         b=x1>=10 && x1<=100; //true (x1 está en ese rango)
+         System.out.println("C3: "+b);
+         
+         //x2 no está entre 10 y 100
+         b=!(x2>=10 && x1<=100); //true (x2 no está en ese rango)
+         System.out.println("C4: "+b);
+         
+         //x3 no está entre 10 y 100
+         b=x3<10 || x3>100; //true (x3 no está en ese rango)
+         System.out.println("C5: "+b);
+         
+         //x1 es mayor que x2 y c1 es igual a c2
+         b=x1>x2 && c1==c2; //false (c1 no es igual a c2)
+         System.out.println("C6: "+b);
+
+         //O x1 es mayor que x2, o c1 es distinto a c2, cualquiera de los dos casos.
+         b=x1>x2 || c1!=c2; //true (se cumplen ambas condiciones)
+         System.out.println("C7: "+b);
+         
+         //x1 es menor o igual que 7 y c2 es igual a c1
+         b=x1<=7 && c2==c1; //false (ambas condiciones son falsas)
+         System.out.println("C8: "+b);
+         
+         //c2 es distinto de 'A' y x2 es mayor que 0
+         b=c2!='A' && x2>0; //true (ambas condiciones son true)
+         System.out.println("C9: "+b);
+         
+         //'F' es distinto de c1 o x1 es mayor que 20
+         b='F'!=c1 || x1>20; //false (ambas condiciones son false)
+         System.out.println("C10: "+b);
+         
+         //'F' es distinto de c1 o x1 es mayor que 20 o x2 es mayor que 2
+         b='F'!=c1 || x1>20 || x2>2; //true (la última condición es cierta)
+         System.out.println("C11: "+b);
+         
+         //'F' es igual a c1 y x3 es menor que x1
+         b='F'==c1 && x3<x1; //true (ambas condiciones son ciertas)
+         System.out.println("C12: "+b);         
+         
+         //'F' es igual a c1 y x3 es menor que x1 y x2 es menor o igual que x3
+         b='F'==c1 && x3<x1 && x2<=x3; //false (la última condición es falsa)
+         System.out.println("C13: "+b);
+         
+         //x2 está entre x3 y x1, y c2 es 'S'
+         b=x2>=x3 && x2<=x1 && c2=='S'; //true (todas las condiciones se cumplen)
+         System.out.println("C14: "+b);
+         
+         //x3 no está entre x2 y x1
+         b=x3<x2 || x3>x1; //true (todas las condiciones se cumplen)
+         System.out.println("C15: "+b);
+         
+         //x3 no está entre x2 y x1, o c2 es igual a c1
+         b=x3<x2 || x3>x1 || c2==c1; //true (solo la última condición no se cumple)
+         System.out.println("C16: "+b);
+         
+         //no se cumple que x3 es menor que x1
+         b=!(x3<x1); //false (x3 si es menor que x1)
+         System.out.println("C17: "+b);
+         
+         //ni x3 es mayor que x1, ni c2 es distinto a c1
+         b=!(x3>x1) && !(c2!=c1); //false (c2 si es distinto a c1 )
+         System.out.println("C18: "+b);
+         
+         //no se cumple que x1 es menor que 100 y x2 es mayor que 10
+         b=!(x1<100 && x2>10); //true
+         System.out.println("C19: "+b);
+
+         //c2 es anterior alfabeticamente a c1         
+         b=c2<c1; //false (la 'S' es posterior a la 'F')
+         System.out.println("C20: "+b);         
+        
+    }
+}
