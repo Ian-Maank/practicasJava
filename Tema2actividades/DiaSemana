@@ -1,0 +1,23 @@
+public class DiasSemana {
+    
+
+     public static void main (String[] args) {
+        // Declaración e inicialización de variables
+        String[] semana = {"Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"};
+       
+        //Salida de información
+         
+        //Utilizamos ahora el bucle for/in
+		/* La cabecera del bucle incorpora la declaración de la variable dia
+         * a modo de contenedor temporal de cada uno de los elementos que forman
+         * el array semana.
+         * En cada una de las iteraciones del bucle, se irá cargando en la variable
+         * dia el valor de cada uno de los elementos que forman el array semana,
+         * desde el primero al último.
+         */
+        for (String dia: semana){
+            System.out.println(dia); 
+        }
+    } 
+}
+
