@@ -1,0 +1,21 @@
+public class multiplicarPor7While {
+
+    public static void main(String[] args) {
+
+        int numero, contador, resultado;
+
+        numero = 7;
+        resultado = 0;
+
+        System.out.println("Tabla de multiplicar del " + numero);
+        System.out.println("................... ");
+
+        contador = 1;
+        while (contador <= 10) {
+            resultado = contador * numero;
+            System.out.println(numero + " x " + contador + " = " + resultado);
+            contador ++;
+        }
+    }
+
+}
