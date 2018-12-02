@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+/**
+ * Este programa todavía presupone que el usuario sólo va a introducir por
+ * teclado números enteros válidos. Todavía no se controlan los errores de
+ * entrada, ni se capturan excepciones. Solicita la introducción de números
+ * enteros no negativos, que se van multiplicando hasta que se introduce un
+ * número negativo, que no se multiplicará por el resto, y se usará como
+ * indicación de que hay que salir del ciclo. Finalmente se muestra la
+ * información sobre cuántos números no negativos se han leído, y cuánto vale su
+ * producto.
+ *
+ * @author sebas
+ */
+public class ProductoEntero {
+
+    public static void main(String[] args) {
+        int numero, producto, contador;
+
+        numero = 0;
+        producto = 1;
+        contador = 0;
+
+        System.out.println("Producto de varios números introducidos por teclado");
+
+        System.out.println("Intruduce un número entero no negativo ");
+        Scanner teclado = new Scanner(System.in);
+        numero = teclado.nextInt();
+
+        while (numero >= 0) {
+
+            contador++;
+            producto = producto * numero;
+
+            System.out.println("Escribe un número entero no negativo ");
+            numero = teclado.nextInt();
+
+        }
+        System.out.println("Se ha leido " + contador + " enteros no negativos cuyo"
+                + " producto es:  " + producto);
+
+    }
+}
