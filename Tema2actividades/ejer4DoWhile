@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author sebas
+ */ 
+public class Ejercicio4DoWhile{
+
+    /**
+     * Este programa todavía presupone que el usuario sólo va a introducir por
+     * teclado números enteros válidos. Todavía no se controlan los errores de
+     * entrada, ni se capturan excepciones.
+     *
+     * Comienza pidiéndole al usuario que introduzca cuántos números se quieren
+     * leer para calcular su suma y su media, y vigilando que el número
+     * introducido no debe ser negativo. Si el número es cero, se mandará un
+     * mensaje indicando que no se ha leído ningún número. Si es positivo, se
+     * leerá la cantidad de números que indique, mediante un ciclo tipo while.
+     * Para cada número leído, se comprobará si es negativo, en cuyo caso será
+     * descartado y se leerá un nuevo número en su lugar, actualizando en cada
+     * iteración el número de intentos de lectura que se llevan realizados, y el
+     * total de números correctos leídos. Al final se mostrará como salida el
+     * total de intentos, la cantidad de números leídos, lo que suman y cuál es
+     * su media aritmética.
+     *
+     * @param args de argumentos para la línea de comandos.
+     */
+    public static void main(String[] args) {
+
+        int totalAleer, numero, intentosLectura = 0, leidos = 0, sumaTotal = 0;
+        float media = 0.0f;
+
+        System.out.println("Leeremos varios numeros no nulos introducidos por teclado para calcular la suma y su media aritmética.");
+        System.out.println("¿Cuantos números no nulos quieres leer?");
+        Scanner t = new Scanner(System.in);
+        totalAleer = t.nextInt();
+
+        if (totalAleer < 0) {
+
+            System.out.println("ERROR: No es posible leer una cantidad negativa de números.");
+            System.out.println("Fin del prgrama");
+        } else {
+
+            if (totalAleer == 0) {
+                System.out.println("Se ha elegido no leer ningún numero.");
+                System.out.println("FIN DEL PROGRAMA");
+
+            } else {
+                do  {
+                    System.out.println("Introduce numero " + (leidos + 1) + "º: ");
+                    numero = t.nextInt();
+                    intentosLectura++;
+                    if (numero >= 0) {
+                        leidos++;
+                        sumaTotal = sumaTotal + numero;
+
+                    } else {
+                        System.out.println("El número " + numero + " es negativo, y se descarta.");
+
+                    } 
+                } while (leidos < totalAleer);
+                
+                media = ((float) sumaTotal) / leidos;
+                System.out.println("Se ha realizado un total de " + intentosLectura + " intentos de lectura de números.");
+                System.out.println("De ellos " + leidos + " han sido correctos. Suma total: " + sumaTotal + ". Media: " + media + ".");
+
+            }
+
+        }
+
+    }
+}
