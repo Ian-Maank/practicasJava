@@ -1,0 +1,45 @@
+package javaejercicio6;
+import java.util.Scanner;
+/**
+ *
+ * @author Profesor
+ */
+/**
+ * Seguimos sin preocuparnos de controlar los errores de entrada, y suponemos que es el usuario
+ * el que tiene cuidado de no introducir valores erróneos. 
+ * Se solicita el peso en kg y la altura en cm del usuario, y a partir de esos datos, calcula 
+ * su índice de masa corporal (IMC) y proporciona un diagnóstico asociado a ese índice. 
+ */
+public class JavaEjercicio6{  //Usando if-else anidados. 
+    
+
+    public static void main (String[] args) {
+
+        System.out.println("Cálculo del Índice de masa corporal(IMC)");
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Introduce el peso (en kg): ");
+        double peso = teclado.nextDouble();
+        System.out.print("Introduce la altura (en cm): ");
+        double altura = teclado.nextDouble()/100;  //Pasamos a metros la altura dividiendo por 100
+        double imc = peso/(altura*altura);
+        System.out.println("Para un peso de "+ peso +" kilogramos y una altura de "+ altura + " metros el índice de masa corporal es de: "+ (int)imc);
+
+        if (imc<16) 
+           System.out.println("Necesita ingresar en un hospital.");
+        else if (imc<17) 
+                System.out.println("Tiene infrapeso.");
+             else if (imc<18) 
+                     System.out.println("Tiene bajo peso.");
+                  else if (imc<26)
+                          System.out.println("Tiene un peso saludable.");
+                       else if (imc<30)
+                               System.out.println("Tiene sobrepeso de grado I.");
+                            else if (imc<35)
+                                    System.out.println("Tiene obesidad de grado II.");
+                                 else if (imc<40)
+                                         System.out.println("Tiene obesidad premórbida o de grado III.");
+                                      else
+                                          System.out.println("Tiene obesidad mórbida o de grado IV");
+
+    }
+}
