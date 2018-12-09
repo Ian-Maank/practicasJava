@@ -1,0 +1,67 @@
+import java.util.Scanner;
+/**
+ * Este programa todavía presupone que el usuario sólo va a introducir por 
+     * teclado números enteros válidos. Todavía no se controlan los errores de 
+     * entrada, ni se capturan excepciones. 
+     * 
+     * Comienza pidiéndole al usuario que introduzca cuántos intentos de lectura de números se desean realizar. 
+     *    - Si se indica una cantidad negativa, terminará el programa con un mensaje de error. 
+     *    - Si se indica cero, se terminará el programa con un mensaje indicando que no se ha leído ningún número. 
+     *    - Si se indica una cantidad positiva, se hará ese número de intentos de lectura de números, usando un ciclo for
+     * Para cada intento,  se leerá un número entero y se comprobará si es positivo o un cero, en cuyo caso será tenido en
+     * cuenta para actualizar la cantidad de números leídos correctamente, y se acumulará su valor a la suma total de 
+     * los números correctos que se llevan leídos. 
+     * 
+     * Al final se mostrará como salida el total de intentos realizados, la cantidad de números  correctos leídos, 
+     * lo que suman y cuál es su media aritmética. 
+ * 
+ */
+public class Ejer5For {
+    public static void main(String[] args) {
+        
+        // variables
+        
+        int intentosARealizar, numero, intentosRealizados=0, leidosCorrectamente=0, 
+                sumaTotal=0;
+        
+        float media=0.0f;
+        
+        System.out.println("Leeremos varios numeros no nulos introducidos por teclado para calcular su suma y su media aritmética");
+        System.out.println("¿Cuantos números no nulos quieres leer?: ");
+        
+        Scanner teclado= new Scanner(System.in);
+        intentosARealizar=teclado.nextInt();
+        
+        if (intentosARealizar<0) {
+            System.out.println("ERROR: No es posible leer una cantidad negativa de números.");
+            System.out.println("Fin del programa.");
+           
+        }else{
+            if (intentosARealizar==0) {
+                System.out.println("Se ha elegido no leer ningun número.");
+                System.out.println("Fin del programa.");
+                
+            }else{
+                for (intentosRealizados=1; intentosRealizados <= intentosARealizar; intentosRealizados++) {
+                     System.out.println("Introduciendo numero " + intentosRealizados + "º: ");
+                     numero=teclado.nextInt();
+                     if (numero>=0) {
+                         leidosCorrectamente+=1;
+                         sumaTotal+=numero;
+                         
+                        
+            }  else {
+                         System.out.println("Escribir el número " + numero + " es negativo, y se descarta");
+                         
+                     }
+                
+            }
+                media = (sumaTotal/leidosCorrectamente);
+                System.out.println("Se han realizado un total de " + intentosARealizar + " intentos de lectura de numeros");
+                System.out.println("Total de números correctos (no negativos) introducidos: " + leidosCorrectamente+ ". Suma total: "+sumaTotal+ ". Media: "+media+".");
+                System.out.println("Fin del programa.");
+        }
+        
+    }
+}
+}
