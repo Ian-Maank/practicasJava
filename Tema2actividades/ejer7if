@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author sebas
+ */
+public class ejer7if {
+    public static void main(String[] args) {
+        
+        // var
+        int A, B, auxiliar;
+        
+        System.out.println("Escribe el valor A: ");
+        Scanner teclado = new Scanner (System.in);
+        A = teclado.nextInt();
+        
+        System.out.println("Escribe el valor B: ");
+        B = teclado.nextInt();
+        
+        System.out.println("Inicialmente A= " + A + " y B= " +B);
+        
+        if (A > B) {
+            auxiliar = A;
+            A = B;
+            B = auxiliar;
+            System.out.println("Despues de ordenar A= "+ A+" y B= "+ B);
+        }else{
+            System.out.println("No hace falta ordenar y A vale: "+A+" y B vale: "+B);
+        }
+        
+    }
+}
