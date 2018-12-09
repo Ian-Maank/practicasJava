@@ -1,0 +1,81 @@
+// Realizar un programa que calcule el índice de masa corporal (IMC) de una persona 
+// a (IMC = peso [kg] / altura2 [m]) e indique el estado en el que se encuentra esa persona en función del valor de IMC.
+package tema2actividades;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author sebas
+ */
+public class ejer6ifelse {
+    public static void main(String[] args) {
+        
+        //variables
+        float imc=0.0f, peso = 0.0f, altura=0.0f, alturacm=0.0f;
+       
+        
+        // pedir datos
+        
+        System.out.println("Vamos a calcular tu indice de masa (INC) ");
+        System.out.println("Intruduce tu peso en Kg: ");
+        
+        // guardar
+        
+        Scanner teclado = new Scanner (System.in);
+        peso=teclado.nextInt();
+        
+        System.out.println("Intruduce tu altura en cm: ");
+        altura=teclado.nextInt();
+        
+        // realizar calculo
+        altura = altura /100;
+        alturacm = altura * altura;
+        imc = peso / alturacm;
+        
+        // test imc= 18;
+        // escribimos
+        
+        System.out.println("Para un peso de " +peso+ " Kg y una altura de "+altura+" metros, el indice de masa corporal es de: " + imc);
+        
+        // realizar cuestiones
+        
+        if (imc <16) {
+            System.out.println("Ingreso en Hospital");
+        }else{
+            if (imc ==16 || imc==17 ) {
+                System.out.println("Infrapeso");
+            }else{
+                if (imc ==17 || imc==18 ) {
+                System.out.println("Bajo peso");
+            }else{
+                    if (imc ==18 || imc<25 ) {
+                System.out.println("Peso normal (saludable)");
+            }else{
+                        if (imc >=25 || imc<=30 ) {
+                System.out.println("Sobrepeso");
+            }else{
+                            if (imc >30 || imc<=35 ) {
+                System.out.println("Sobrepeso crónico");
+            }else{
+                                if (imc >35 || imc<=40 ) {
+                System.out.println("Sobrepeso premórbida");
+            }else{
+                  
+                                        if (imc >40 ) {
+                System.out.println("Gordaco");
+            }else{
+                                            
+                                        }
+                                        
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
