@@ -1,0 +1,58 @@
+import java.util.Scanner;
+/**
+ *Queremos calcular el factorial de un número entero no negativo leído desde teclado.
+ *Aunque existe una solución recursiva para este problema, no es la que aplicaremos
+ * aquí. En su lugar usaremos la solución iterativa.
+ *El factorial de un número entero positivo o nulo n se  representa como n! 
+ * y se define como:
+ * n! = 1 , si n vale 0.
+ * n! = n * (n-1) * (n-2) * (n-3) * … * 2 * 1 , si n > =1
+ * 
+ * @author sebas
+ */
+public class ejer10factorialwhile {
+    public static void main(String[] args) {
+        
+        int n, factorial, contador;
+        
+        System.out.println("Introduce el valor de un número no negativo para "
+                + "calcular su factorial: ");
+        Scanner teclado = new Scanner(System.in);
+        n = teclado.nextInt();
+        
+        while (n<0) {
+            System.out.println("ERROR: sólo se admiten números positivos o nulos"
+                    + " para el cálculo del factorial. Vuelva a introducir el "
+                    + "número: ");
+            n=teclado.nextInt();
+        }
+        /**
+         * Inicializamos factorial a 1 para que al multiplicar la primera vez 
+         * tengamos el resultado correcto factorial <--1 
+         * contador va a ser usado para ir tomando los valores n, n-1, n-2, … 
+         * que son los factores que hay que ir multiplicando para calcular el 
+         * factorial. Por eso lo inicializamos al valor de n, y en cada iteración
+         * del bucle iremos  decrementándolo en una unidad para ir multiplicando
+         * por un nuevo factor
+         */ 
+        
+        factorial =1;
+        contador = n;
+        
+	// Si el número es distinto de cero, calculamos el valor de factorial con 
+        // el ciclo repetir, en el que empezamos multiplicando por 
+	// contador, inicializado al valor de n. Si es cero, no tenemos que hacer 
+        // nada, puesto que su factorial vale 1, que es justamente el 
+	// valor de inicialización de la variable factorial.
+                
+        if (n<0 || n>0) {
+            do { 
+                factorial = factorial * contador;            
+                contador --;
+            }while (contador != 0);
+        } 
+        // escritura de resultado
+        System.out.println(n+"! = "+ factorial);
+    }
+ 
+}
