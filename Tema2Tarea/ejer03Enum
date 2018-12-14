@@ -1,0 +1,116 @@
+package orantes_solera_sebastian_prog02_tarea;
+
+/**
+ *  Crear dos enumerasdos sobre curso escolar y genero de estudiantes. Con ello
+ * y con dos numeros aleatorias asignaremos que curso y genero son en base a los
+ * dos enumerados.
+ * 
+ * @author Sebastian Orantes Solera
+ * @version 1.0 1819 Dam
+ */
+
+public class Ejercicio03 {
+
+    public enum Curso {
+        INFANTIL, PRIMARIA, SECUNDARIA, DESCONOCIDO
+    };
+
+    public enum Para {
+        NIÑO, NIÑA
+    };
+
+    public static void main(String[] args) {
+
+        int edad = (int) Math.round(Math.random() * 20);
+        int genero = (int) Math.round(Math.random());
+        
+        // los enumerados se guardan en Curso y Para, se instancia los objetos
+        // curso y para respectivamente y se evalua los parametros edad y genero
+        // con Switch asignandole a edad y genero los parametros pertinentes del
+        // objeto curso y para.
+        
+        Curso curso;
+        Para para;
+        
+        switch (edad) {
+            case 3:
+                curso = Curso.INFANTIL;
+                break;
+            case 4:
+                curso = Curso.INFANTIL;
+                break;
+            case 5:
+                curso = Curso.INFANTIL;
+                break;
+            case 6:
+                curso = Curso.PRIMARIA;
+                break;
+            case 7:
+                curso = Curso.PRIMARIA;
+                break;
+            case 8:
+                curso = Curso.PRIMARIA;
+                break;
+            case 9:
+                curso = Curso.PRIMARIA;
+                break;
+            case 10:
+                curso = Curso.PRIMARIA;
+                break;
+            case 11:
+                curso = Curso.PRIMARIA;
+                break;
+            case 12:
+                curso = Curso.SECUNDARIA;
+                break;
+            case 13:
+                curso = Curso.SECUNDARIA;
+                break;
+            case 14:
+                curso = Curso.SECUNDARIA;
+                break;
+            case 15:
+                curso = Curso.SECUNDARIA;
+                break;
+            default:
+                curso = Curso.DESCONOCIDO;
+
+        }
+
+        switch (genero) {
+            case 0:
+                para = Para.NIÑO;
+
+                break;
+            case 1:
+                para = Para.NIÑA;
+                break;
+            default:
+                throw new AssertionError();
+
+        }
+        System.out.println("Edad: " + edad);
+        System.out.println("Genero: " + genero);
+        
+        // he creado un String texto que no venia en las indicaciones para hacer
+        // un poco mas corto el programa y subretodo mas limpio. Según creo.
+        
+        String texto = ("El uniforme de " + curso + " para " + para);
+        
+        // añadimos a la cadena el texto pertinente.
+
+        if (curso == curso.DESCONOCIDO) {
+            System.out.println("Etapa educativa desconocida.");
+        } else if (curso == curso.INFANTIL) {
+            System.out.println(texto + " vale 100€.");
+        } else if (curso == curso.PRIMARIA && para == para.NIÑO) {
+            System.out.println(texto + " vale 126€.");
+        } else if (curso == curso.PRIMARIA && para == para.NIÑA) {
+            System.out.println(texto + " vale 124€.");
+        } else if (curso == curso.SECUNDARIA) {
+            System.out.println(texto + " vale 143€.");
+        }
+
+    }
+
+}
