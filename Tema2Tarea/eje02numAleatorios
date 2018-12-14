@@ -1,0 +1,31 @@
+public class Ejercicio02 {
+
+    public static void main(String[] args) {
+
+        final int constante = 4;
+        String res = "Estuve en ";
+        double ale = Math.random() * (-5 - 15) + 15;
+
+        System.out.println("El primer numero aleatorio es: " + ale);
+
+        if (ale >= constante) {
+            res = res + "Varsovia";
+        } else {
+            res = res + "Budapest";
+        }
+
+        ale = Math.random() * 12;
+        System.out.println("El segundo numero aleatorio es: " + ale);
+
+        if (ale >= 0 && ale < constante) {
+            res = res + " y hacia frio.";
+        } else if (ale >= constante && ale <= 8) {
+            res = res + " y hacia calor.";
+        } else {
+            res = res + " y estaba nublado";
+        }
+
+        System.out.println(res);
+    }
+
+}
