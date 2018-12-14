@@ -1,0 +1,56 @@
+public class Ejercicio04 {
+
+    public static void main(String[] args) {
+
+        String izquierda = ">";
+        String derecha = "<";
+        String asterisco = "*";
+        String cadena = "";
+        
+        
+        int ale = (int) Math.round(Math.random() * 5);
+        
+        // lo he afrontado calculando los simbolos que van a la izquierda, sabiendo
+        // el numero aleatorio. Y calcular si hay impar, y sumarlo si lo hubiese.
+        // ( si no lo hubiese le sumaria 0)
+        // Intuyo que esto se puede hacer mas facil o resumido, pero despues de 
+        // intentarlo de muchas maneras no lo he conseguido y lo he realizado asi.
+        
+        int numIzquierda = (10 - ale) /2;
+        int sumaImpar = ale %2;
+        numIzquierda = numIzquierda + sumaImpar;
+        
+        int numDerecha = (10 - ale) / 2;
+       
+        // hacemos uan serie de bucles. Antes de cada bucle pongo el contador a cero.
+        // He realizado los ciclos con un do while, while y do while. No se bien
+        // si es la manera correcta.
+        
+        int contador = 0;
+               
+        do {
+            cadena = cadena + izquierda;
+            contador++;
+        } while (contador < numIzquierda);
+
+        contador=0;
+
+        while (contador< ale) {
+            cadena = cadena + asterisco;
+            contador++;
+        }
+
+        contador =0;
+        
+        do {
+            cadena = cadena + derecha;
+            contador++;
+        } while (contador < numDerecha);
+        
+        // he concatenado toda la cadena y al final se imprime "de golpe"
+        
+        System.out.println(cadena);
+
+    }
+
+}
