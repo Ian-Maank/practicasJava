@@ -1,0 +1,52 @@
+public class Ejercicio05 {
+
+    public static void main(String[] args) {
+
+        int x = (int) (Math.random() * 10 + 10);
+        
+        // imprimimos la lista de numeros y donde NO sea igual al numero aleatorio
+        // imprimo numeros y donde si los asteriscos.
+
+        for (int i = 10; i <= 19; i++) {
+            if (i != x) {
+                System.out.print(i + " ");
+            } else {
+                System.out.print("** ");
+            }
+        }
+        
+        // utilizo println y \n para hacer dos saltos de linea como se ven en la foto
+        // no se si habra mejor forma de hacerlo.
+        
+        System.out.println("\n");
+
+        for (int i = 10; i <= 19; i++) {
+            if (i != x) {
+                System.out.print("---");
+            } else if (i == x - 1) {
+                System.out.print("-- ");
+            } else if (i == x) {
+                System.out.print(i + " --> aquí va el " + x);
+                i = 19;
+            }
+        }
+
+        System.out.println("\n");
+        System.out.print("Los 5 números posteriores son: ");
+
+        for (int i = x + 1; i <= x + 5; i++) {
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println("\n");
+        System.out.print("Los 5 números anteriores son: ");
+
+        for (int i = x - 1; i >= x - 5; i--) {
+            System.out.print(i + " ");
+
+        }
+        System.out.println("\n");
+
+    }
+}
