@@ -1,0 +1,57 @@
+public class Ejercicio06 {
+
+    public static void main(String[] args) {
+        
+        // declaro variables aleatorias que usaremos.
+        
+        int aFila = (int) (Math.random() * 5);
+        int aCol = (int) (Math.random() * 5);
+        int bFila = (int) (Math.random() * 5);
+        int bCol = (int) (Math.random() * 5);
+        
+        // hacemos que dos filas no coincidan.
+        
+        while (aFila == bFila) {
+            aFila = (int) (Math.random() * 5);
+        }
+        while (aCol == bCol) {
+            aCol = (int) (Math.random() * 5);
+        }
+        // imprimimos en pantalla
+        
+        System.out.println("La primera mesa elegida es columna " + aCol + ", fila " + aFila);
+        System.out.println("La segunda mesa elegida es columna " + bCol + ", fila " + bFila);
+
+        System.out.println("  01234");
+
+        String guion = "-";
+        String astFila = "*";
+        
+        // Rellenamos el cuadrado con guiones y asteriscos donde proceda.
+        // Con el primer For genero las columnas poco a poco y con el segundo
+        // voy rellenando segun proceda guion o asterisco.
+        
+        // no he concatenado lo que se va imprimiendo por que lo he realizado que
+        // imprimia linea por linea, y concatenarlo me parece que es escribir mas.
+        // imagino que habra una forma de hacerlo que todo se guarde y luego impormirlo.
+        // pero no he dado con ella y he preferido imprimir liena a liena.
+
+        for (int i = 0; i <= 4; i++) {
+            System.out.print(i + " ");
+
+            for (int j = 0; j <= 4; j++) {
+
+                if (j == aFila && i == aCol) {
+                    System.out.print(astFila);
+                    
+                } else if (j == bFila && i == bCol) {
+                    System.out.print(astFila);
+                    
+                } else {
+                    System.out.print(guion);
+                }
+            }
+            System.out.println("");
+        }
+    }
+}
