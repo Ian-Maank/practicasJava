@@ -1,0 +1,57 @@
+package mcd;
+
+import java.util.Scanner;
+
+public class MaximoComunDivisor {
+    
+    public static void main (String[] args){
+        
+        System.out.println("CÁLCULO DEL MÁXIMO COMÚN DIVISOR DE DOS NÚMEROS POR EL ALGORITMO DE EUCLIDES: SOLUCIÓN RECURSIVA");
+        int a, b ;
+        int mayor, menor ;
+        int mcd = 0 ;
+        Scanner teclado = new Scanner(System.in);
+       
+        System.out.println("Introduce el primer número entero");
+        a = teclado.nextInt() ;
+       
+        System.out.println("Introduce el segundo número entero");
+        b = teclado.nextInt() ;
+       
+        if (a >= b){
+            mayor = a ;
+            menor = b ;
+        }
+        else {
+            mayor = b ;
+            menor = a ;
+        }
+        
+        mcd = maximoComunDivisor(mayor, menor);
+        System.out.println("M.C.D.(" + mayor + "," + menor + ")=" + mcd);
+                   
+    }
+    
+    /**
+     * 
+     * @param dividendo
+     * @param divisor
+     * @return 
+     */
+    public static int maximoComunDivisor(int dividendo, int divisor){
+        
+        int resultado=0 ;
+        
+        // Calcular el resto
+        int resto = dividendo % divisor ;
+        
+        // Si el resto es cero entonces devolvemos el divisor
+        if (resto == 0)
+            resultado = divisor ;   // caso base
+        else
+            resultado = maximoComunDivisor(divisor, resto);  //Caso recursivo.
+      
+        return resultado;
+  }
+   
+}
