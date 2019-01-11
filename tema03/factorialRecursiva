@@ -1,0 +1,59 @@
+package factorial;
+
+import java.util.Scanner;
+
+/**
+ * Cálculo revursivo del factorial
+ * 
+ * Por simplicidad se ha omitido la captura de excepciones, por lo que se 
+ * presume que el usuario introducirá valores numéricos correctos.
+ * 
+ * @author JJBH
+ */
+public class FactorialRecursiva {
+    
+    public static void main (String[] asrgs){
+        Scanner teclado = new Scanner(System.in);
+        int continuar = 1;
+        int numero = 0;
+        
+        System.out.println("CÁLCULO DEL FACTORIAL DE UN NÚMERO: MÉTODO RECURSIVO");
+        
+        /*Definimos fact como double para permitir el cálculo del factorial de números más grandes, ya que 
+         *el producto hace que los resultados crezcan exponencialmente, y ya para números inferiores a 30 
+         *produce resultados negativos (aritmética cíclica) incluso si se declara como long.  */
+        double fact = 0 ;
+        while (continuar==1){
+            /*Sólo permitimos la lectura de números mayores o iguales que cero. No está definido
+            *el factorial de números negativos
+            */
+            System.out.println("Introduce un número mayor o igual a cero para calcular su factorial: ");
+            numero = teclado.nextInt() ;
+            
+            fact = factorial(numero) ;
+            System.out.println(numero + "!= " + fact);
+            
+            /*Sólo permitimos que se conteste cero o uno, para No y Si respectivamente*/
+            System.out.println("¿Deseas calcular el factorial de otro número? 0:No 1:Sí");
+            continuar = teclado.nextInt() ;
+                      
+      }
+  }
+  /*A continuación  está el método que calcula el factorial de un número de forma recursiva, 
+   *llamándose a sí mismo. Devuelve un valor double para permitir el cálculo para números mayores
+   */
+  public static double factorial(int numero){
+      /*Inicializamos fact al valor 1, que es el valor adecuado para los casos base 0 y 1e, para los
+       *que se conoce directamente el valor del factorial, y que es 1.
+       */
+      double fact = 1 ;
+      /*Si el número es menor que 1 (0 ó 1), fact ya tiene el valor adecuado, y no habrá que calcularlo
+       *con una nueva llamada al método
+       */
+      if (numero > 1){
+          fact = numero * factorial(numero-1) ;
+      }
+      return fact; 
+  }
+    
+}
