@@ -1,0 +1,58 @@
+package factorial;
+
+import java.util.Scanner;
+
+/**
+ * Por simplicidad se ha omitido la captrua de excepciones, por lo que se 
+ * presume que el usuario introducirá valores numéricos correctos.
+ * 
+ * @author JJBH
+ */
+public class FactorialIterativa {
+
+    public static void main(String[] args) {
+             
+        System.out.println("CÁLCULO DEL FACTORIAL DE UN NÚMERO: MÉTODO ITERATIVO");
+        int continuar=1;
+        int numero=0;
+        Scanner teclado = new Scanner(System.in);
+        
+        /*Definimos fact como double para permitir el cálculo del factorial de 
+        números más grandes, ya que el producto  hace que los resultados crezcan
+        exponencialmente   */
+        double fact = 0;
+        
+        while(continuar==1){
+            
+            /*Sólo permitimos la lectura de números mayores o iguales que cero. No está definido
+           *el factorial de números negativos
+           */
+            System.out.println("Introduce un número mayor o igual a cero para calcular su factorial: ");
+            numero = teclado.nextInt() ;
+            fact=factorial(numero);
+            System.out.println(numero+"!= "+fact);
+            
+            /*Sólo permitimos que se conteste cero o uno, para No y Si respectivamente*/
+            System.out.println("¿Deseas calcular el factorial de otro número? 0:No 1:Sí");
+            continuar=teclado.nextInt() ;
+          
+        }
+    }
+    
+    /*A continuación  está el método que realmente calcula el factorial de un número de forma iterativa, 
+	*en este caso usando un ciclo for. 
+	*/
+	public static double factorial(int numero){
+      /*Inicializamos fact al valor 1 para acumular los productos. También sirve como valor del
+       *factorial para los casos en que numero sea 0 ó 1, para los que ni siquiera se ejecuta el for
+      */
+      double fact=1;
+      
+      for (int n = numero; n>1; n--){
+          fact *= n ;
+      }
+     
+     return fact; 
+	}
+    
+}
