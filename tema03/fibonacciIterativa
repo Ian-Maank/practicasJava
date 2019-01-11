@@ -1,0 +1,68 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fibonacci;
+
+import java.util.Scanner;
+
+public class FibonacciIterativa {
+    
+     public static void main (String[] asrgs){
+         
+        System.out.println("CÁLCULO DEL TÉRMINO N-ÉSIMO DE LA SUCESIÓN DE FIBONACCI: MÉTODO ITERATIVO");
+        int continuar = 1 ;
+        int numero = 0 ;
+        Scanner teclado = new Scanner(System.in);
+        
+        /*Se declaran variables de tipo long  para permitir el cálculo de términos más altos de la sucesión.*/ 
+        long  fib=0;
+        while(continuar==1){
+            /*Sólo permitimos la lectura de números mayores o iguales que cero, ya que un término negativo
+            *de una sucesión no tiene mucho sentido           */
+            
+            System.out.println("Introduce el número del término de la sucesión de Fibonacci a calcular: ");
+            numero = teclado.nextInt() ;
+            
+            fib = fibonacci(numero) ;
+            
+            System.out.println("Fibonacci(" + numero + ")= " + fib);
+            
+            /*Sólo permitimos que se conteste cero o uno, para No y Si respectivamente*/
+            System.out.println("¿Deseas calcular otro término de la sucesión de Fibonacci? 0:No 1:Sí  ");
+            continuar = teclado.nextInt() ;
+      }
+  }
+     
+     
+  /*A continuación  está el método que calcula el término de la sucesión de fibonacci de forma iterativa, usando
+   *un bucle for. 
+   */
+  public static long fibonacci(int numero){
+      /*Inicializamos fib al valor 0 */
+     long fib=0;
+      
+      /*Las siguentes variables se inicializan a cero porque el compilador lo pide para estar seguro de
+       *que reciben un valor cuando se usan  fuera del for. Si se inicializan dentro de un for, que depende de una 
+       *condición, el compilador no tiene garantía de que se hayan inicializado, y cuando se intenta usar actual fuera
+       *for, el compilador se queja.
+       */
+      long penultimo=0,ultimo=0,actual=0; 
+      if (numero <= 1){
+          fib = numero;
+      }else{
+         penultimo = 0 ;
+         ultimo = 1;
+         for(int i=2; i<=numero; i++){
+             actual = ultimo + penultimo ;
+             penultimo = ultimo ;
+             ultimo = actual ;
+         }
+         fib = actual ;
+      }
+      
+      return fib; 
+  }
+    
+} 
