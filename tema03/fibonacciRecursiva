@@ -1,0 +1,52 @@
+package fibonacci;
+
+import java.util.Scanner;
+
+public class FibonacciRecursiva {
+       
+     public static void main (String[] asrgs){
+         
+         System.out.println("C�lculo del t�rmino n-�simo de la suceci�n de Fibonacci: M�todo recursivo\n");
+         /*Se declaran variables de tipo long  para permitir el c�lculo de t�rminos m�s altos de la sucesi�n.*/ 
+         int continuar = 1 ;
+         long numero = 0 ;
+         
+         Scanner teclado = new Scanner(System.in);
+         long  fib = 0 ;
+         while (continuar == 1){
+             /*Sólo permitimos la lectura de n�meros mayores o iguales que cero, ya que un t�rmino negativo
+              *de una sucesión no tiene mucho sentido           */
+             System.out.println("Introduce el n�mero del t�rmino de la sucesi�n de Fibonacci a calcular: ");
+             numero = teclado.nextInt() ;
+             
+             // Llamamos a la funci�n con el n�mero introducido por teclado
+             fib = fib(numero);
+             
+             // Escribimos el resultado obtenido
+             System.out.println("Fibonacci(" + numero + ")= " + fib);
+             
+             /*Sólo permitimos que se conteste cero o uno, para No y Si respectivamente*/
+             System.out.println("�Deseas calcular otro t�rmino de la sucesi�n de Fibonacci? 0:No 1:S�  ");
+             continuar = teclado.nextInt() ;
+          
+          }
+    }
+         
+       
+  /**
+   * M�todo que calcula el t�rmino de la sucesi�n de fibonacci de forma recursiva, 
+   * llam�ndose a s� mismo
+   * @param numero
+   * @return 
+   */   
+  public static long fib(long numero){
+      /*Inicializamosfib al valor 1*/
+      long fib = 0;
+      /*Si el n�mero es menor que 1 no habr� que realizar una nueva llamada al m�todo*/
+      if (numero > 1 ){
+          fib = fib(numero-1) + fib(numero-2); //caso recursivo, para n>1
+      }else 
+          fib = numero; //caso base, para numero = 1 ó número = 0
+      return fib; 
+  }   
+}
